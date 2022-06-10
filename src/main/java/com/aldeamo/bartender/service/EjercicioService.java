@@ -1,61 +1,58 @@
-/*package com.aldeamo.bartender.service;
+package com.aldeamo.bartender.service;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
-import com.aldeamo.bartender.entity.Arrays;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EjercicioService 
 {
-	public ArrayList<Integer> pizacaremonda(Integer iteracion, String array)//int Q, ArrayList<Integer> vasos
+	public ArrayList<Integer> pizacaremonda(Integer iteraciones, String array)
 	{
-		System.out.print(array);
-		return null;
-		/*ArrayList<Integer> a = new ArrayList();
-        ArrayList<Integer> b = new ArrayList();
-        //ArrayList<Integer> vasos = new ArrayList();
-        ArrayList<Integer> respuesta = new ArrayList();
+        ArrayList<Integer> B = new ArrayList<Integer>();
+        ArrayList<Integer> vasos = new ArrayList<Integer>();
+        ArrayList<Integer> respuesta = new ArrayList<Integer>();
         int primos[] = {2,3,5,7,11,13,17};
-
-        //llenar array vasosmostrar la lista de vasos que tengo
-        //for (int i = 2; i < 8; i++) 
-        //{
-        //   vasos.add(i);
-        //}
-        //mostrar la lista de vasos que tengo
-        //for (int i = 0; i < vasos.size(); i++) 
-        //{
-        //   System.out.println(vasos.get(i));
-        //}
-
-        System.out.println("\n");
-
-        for (int i = 0; i < Q; i ++)
+       
+		vasos = coverStringToArray(array, vasos);
+        
+        for (int i = 0; i < iteraciones; i ++)
         {
-            System.out.println(i + " i");
             int p = primos[i];
-            System.out.println(p + " primos\n");
-            for (int j = 0; j < vasos.size(); j ++) 
+            for (int j = vasos.size() - 1; j >= 0; j--) 
             {
-                int temp = vasos.get(j);
-                System.out.println(temp + " vaso");
-                if(temp % p == 0)
+                if(vasos.get(j) % p == 0)
                 {
-                    a.add(temp);
-                    respuesta.add(temp);
+                    B.add(vasos.get(j));
                     vasos.remove(j);
                 }   
-                else
+            }
+            
+            for (int z = 0; z < B.size(); z++) 
+            {
+                respuesta.add(B.get(z));
+            }
+            
+            B.clear();
+            
+            if(i >= iteraciones -1)
+            {
+                for (int n = 0; n < vasos.size(); n++)
                 {
-                    b.add(temp);
+                    respuesta.add(vasos.get(n));
                 }
-                System.out.println(vasos + " estos son los vasos que queda en esta iteraion #: " + i); //invertir valores
-            System.out.println(a + "Arreglo A iteracion #: " + i); //invertir valores
-            System.out.println(b + "Arreglo b iteracion #: " + i);//invertir valores
-            System.out.println(respuesta + "Arreglo Respuesta iteracion #: " + i);
-            System.out.println("\n\n\n");
             }
         }
-        return  respuesta;//agregarle el restante
+        return respuesta;
+    }
+	
+	public ArrayList<Integer> coverStringToArray(String array, ArrayList<Integer> vasos)
+	{
+		String[] cadenaSeparada = array.split(",");
+		for (String i: cadenaSeparada) 
+		{
+            vasos.add(Integer.parseInt(i));
+        }
+        return vasos;
 	}
-}*/
+}

@@ -7,26 +7,22 @@ import java.util.ArrayList;
 import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.Test;
 
+import com.aldeamo.bartender.service.EjercicioService;
+
 //import com.aldeamo.bartender.service.EjercicioService;
 
 public class EjercicioServiceTest 
 {
-	/*
+	
 	@Test
 	public void cualquiercosa()
 	{
-		EjercicioService ejer = new EjercicioService();
-
-        ArrayList<Integer> vasos = new ArrayList();
-        vasos.add(2);
-        vasos.add(3);
-        vasos.add(4);
-        vasos.add(5);
-        vasos.add(6);
-        vasos.add(7);
-		ArrayList respuesta = ejer.pizacaremonda(3, vasos);
-		int[] expectedArray = {2,4,6,3,5};
 		
-		assertEquals(Arrays.asList(expectedArray), respuesta);
-	}*/
+		EjercicioService ejer = new EjercicioService();
+		ArrayList respuesta = ejer.pizacaremonda(3, "2,3,4,5,6,7");
+		assertEquals(Arrays.asList(new int[]{6,4,2,3,5,7}), respuesta);
+		
+		respuesta = ejer.pizacaremonda(3, "2,4,5,6,7,8");
+		assertEquals(Arrays.asList(new int[]{8,6,4,2,5,7}), respuesta);
+	}
 }
