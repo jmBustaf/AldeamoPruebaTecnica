@@ -12,14 +12,11 @@ import com.aldeamo.bartender.entity.Arrays;
 public class ArraysService 
 {	
 	@Autowired
-	private ArraysRepository servBarTender;
+	private ArraysRepository arraysRepository;
 	
-	@Autowired
-	private EjercicioService servEjercicioService;
-
 	public ArrayList<Integer> getArray(Integer iteraciones, Integer id)
 	{
-		Optional<Arrays> array = servBarTender.findById(id);
-		return servEjercicioService.pizacaremonda(iteraciones, array.get().getInput_array());
+		Optional<Arrays> array = arraysRepository.findById(id);
+		return BartenderUtils.prepareDrinks(iteraciones, array.get().getInput_array());
 	}
 }         

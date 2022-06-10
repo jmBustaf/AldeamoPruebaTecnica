@@ -2,12 +2,9 @@ package com.aldeamo.bartender.service;
 
 import java.util.ArrayList;
 
-import org.springframework.stereotype.Service;
-
-@Service
-public class EjercicioService 
+public class BartenderUtils 
 {
-	public ArrayList<Integer> pizacaremonda(Integer iteraciones, String array)
+	public static ArrayList<Integer> prepareDrinks(Integer iteraciones, String array)
 	{
         ArrayList<Integer> B = new ArrayList<Integer>();
         ArrayList<Integer> vasos = new ArrayList<Integer>();
@@ -46,7 +43,7 @@ public class EjercicioService
         return respuesta;
     }
 	
-	public ArrayList<Integer> coverStringToArray(String array, ArrayList<Integer> vasos)
+	private static ArrayList<Integer> coverStringToArray(String array, ArrayList<Integer> vasos)
 	{
 		String[] cadenaSeparada = array.split(",");
 		for (String i: cadenaSeparada) 

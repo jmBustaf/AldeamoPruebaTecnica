@@ -12,17 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.aldeamo.bartender.service.ArraysService;
 
 @RestController
-
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET, RequestMethod.OPTIONS})
 @RequestMapping("/Bartender")
 public class ArraysController 
 {
 	@Autowired
-	private ArraysService serBarTender;
+	private ArraysService arraysService;
 	
 	@GetMapping("/buscar/{iteraciones}/{id}")
 	private ArrayList<Integer> getArray(@PathVariable("iteraciones") Integer iteraciones, @PathVariable("id") Integer id)
 	{
-		return serBarTender.getArray(iteraciones, id);		
+		return arraysService.getArray(iteraciones, id);		
 	}	
 }
